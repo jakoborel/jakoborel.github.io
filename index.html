@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jakob Orel — Data Analyst</title>
+  <meta name="description" content="Portfolio and contact for Jakob Orel, a detail-oriented data analyst and process driver." />
+  <meta name="theme-color" content="#12b3c7" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jakob Orel — Data Analyst" />
+  <meta property="og:description" content="Detail-oriented analyst turning messy data into clear decisions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/1200/630?blur=1" />
+  <meta property="og:url" content="https://example.com/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --bg-elev: #0f141b;
+      --text: #e6eef4;
+      --muted: #a9b7c0;
+      --accent: #12b3c7; /* subtle cyan, techy */
+      --card: #111821;
+      --border: #1b2632;
+      --maxw: 1100px;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-contrast: more){
+      :root { --accent:#00d5ff; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -10%, #112733 0%, transparent 60%),
+                  radial-gradient(900px 500px at -10% 0%, #0e2530 0%, transparent 60%),
+                  var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{
+      position:fixed; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem;
+      background: var(--card); outline: 2px solid var(--accent); border-radius: .5rem; z-index: 9999;
+    }
+
+    /* Layout */
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in hsl, var(--bg-elev) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      max-width: var(--maxw); margin: 0 auto; padding: .8rem 1rem;
+      display:flex; align-items:center; gap: 1rem;
+    }
+    .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; }
+    .logo{
+      width: 34px; height: 34px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #3ad6ea 70%);
+      box-shadow: 0 4px 16px color-mix(in oklab, var(--accent) 40%, black);
+    }
+    .brand span{ font-weight: 700; letter-spacing:.3px; color: var(--text); }
+    nav ul{
+      margin-left: auto; display:flex; gap: .8rem; list-style:none; padding:0;
+      flex-wrap: wrap;
+    }
+    nav a{
+      color: var(--muted); text-decoration: none; font-weight: 600; padding:.5rem .7rem; border-radius:.6rem;
+    }
+    nav a:focus-visible, nav a:hover{ color: var(--text); background: var(--card); outline: 2px solid transparent; }
+
+    .hero{
+      max-width: var(--maxw); margin: 2.5rem auto 1rem; padding: 1.5rem 1rem 0;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items:center;
+    }
+    .hero h1{ font-size: clamp(2rem, 4vw + .5rem, 3.2rem); line-height:1.1; margin:.2rem 0 .6rem;}
+    .title { color: var(--muted); font-weight:600; letter-spacing:.4px; }
+    .lede{ font-size: clamp(1rem, 1.4vw + .6rem, 1.15rem); color: #d6e3ea; }
+    .cta { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1rem; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.65rem .9rem; border-radius:.7rem; text-decoration:none; font-weight:700;
+      border:1px solid var(--border); background: var(--card); color: var(--text);
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    }
+    .btn:hover, .btn:focus-visible{ border-color: color-mix(in oklab, var(--accent) 60%, white); outline:none; }
+    .btn.primary{ background: linear-gradient(135deg, var(--accent), #3ad6ea 80%); color:#001217; border-color: transparent; }
+    .btn .icon{ width:1.1rem; height:1.1rem; }
+
+    .portrait{
+      width: 180px; height: 180px; border-radius: 16px; overflow:hidden; margin: .5rem auto 0; box-shadow: var(--shadow);
+      border:1px solid var(--border); background: #0c1117;
+    }
+    .portrait img{ display:block; width:100%; height:100%; object-fit: cover; }
+
+    main{ max-width: var(--maxw); margin: 1rem auto 4rem; padding: 0 1rem; }
+    section{ margin-top: 3rem; scroll-margin-top: 80px; }
+    section h2{
+      font-size: clamp(1.1rem, 1.8vw + .6rem, 1.6rem);
+      margin: 0 0 1rem; letter-spacing:.2px;
+    }
+    .kicker{ color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: .8rem; letter-spacing: .2rem; }
+
+    .card{
+      background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 1.1rem;
+    }
+    .grid{ display:grid; gap:1rem; }
+    .grid.cols-2{ grid-template-columns: repeat(1,1fr); }
+    .grid.cols-3{ grid-template-columns: repeat(1,1fr); }
+    @media (min-width: 760px){
+      .grid.cols-2{ grid-template-columns: repeat(2,1fr); }
+      .grid.cols-3{ grid-template-columns: repeat(3,1fr); }
+    }
+
+    .exp-item + .exp-item{ margin-top: .9rem; }
+    .exp-head{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .exp-title{ font-weight: 700; }
+    .exp-meta{ color: var(--muted); font-size: .95rem; }
+
+    .proj{ display:flex; flex-direction:column; gap:.5rem; }
+    .proj a.proj-link{ text-decoration:none; color: var(--text); font-weight:700; }
+    .proj p{ color: var(--muted); margin:.2rem 0 0; }
+
+    .tags{ display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.4rem;}
+    .tag{ font-size:.8rem; padding:.25rem .5rem; border:1px solid var(--border); border-radius:.5rem; color: var(--muted); }
+
+    .skills-list{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .skill{ padding:.45rem .6rem; border:1px dashed var(--border); border-radius:.6rem; color: #d3dee6; background:#0c1219; }
+
+    .blog-item + .blog-item{ margin-top:.8rem; }
+    .blog-item a{ color: var(--text); text-decoration:none; font-weight:700; }
+    .blog-item a:hover{ text-decoration: underline; }
+    .blog-meta{ color: var(--muted); font-size:.95rem; }
+
+    .contact{ text-align:center; padding: 1.5rem; }
+    .contact p{ color: var(--muted); }
+
+    footer{
+      border-top: 1px solid var(--border);
+      color: var(--muted); padding: 1.2rem; text-align:center; background: #0a0f14;
+    }
+
+    /* Subtle reveal */
+    .reveal{ opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in{ opacity:1; transform:none; }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      .reveal{ opacity:1 !important; transform:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="nav" role="navigation" aria-label="Primary">
+      <a href="#" class="brand" aria-label="Home">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Jakob Orel</span>
+      </a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="intro">
+    <div>
+      <div class="kicker" id="intro">Data Analyst</div>
+      <h1>Jakob Orel</h1>
+      <p class="lede">
+        Detail-oriented process driver who turns messy data into clear decisions. I lead with ownership and an independent mindset, 
+        building self-serve analytics and reliable pipelines that scale. I care about clean models, pragmatic experimentation, and measurable impact.
+      </p>
+      <div class="cta">
+        <!-- TODO: Replace links below -->
+        <a class="btn primary" href="mailto:jakob.orel@example.com" aria-label="Email Jakob">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v.35l-10 6.25L2 6.35V6Zm0 2.53v9.47a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.53l-9.41 5.88a2 2 0 0 1-2.18 0L2 8.53Z"/></svg>
+          Email
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/jakoborel" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1.01 1.84-2.2 3.79-2.2 4.05 0 4.8 2.67 4.8 6.13V24h-4v-5.6c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94V24H8V8z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="resume.pdf" download aria-label="Download résumé">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 16a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5Z"/></svg>
+          Résumé
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="portrait" aria-hidden="true">
+        <!-- Placeholder image, swap with your headshot URL -->
+        <img src="https://picsum.photos/400?grayscale" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="about" class="reveal">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          I partner with product, engineering, and operations to align metrics, ship trustworthy dashboards, and simplify decision-making.
+          My toolkit spans SQL, Python, and modern BI; my bias is toward clarity, automation, and momentum.
+        </p>
+        <p style="color:var(--muted)">
+          <!-- Optional quick facts -->
+          <strong>Focus:</strong> analytics engineering · experimentation · supply chain & operations analytics
+        </p>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <h2>Experience</h2>
+      <div class="card">
+        <!-- TODO: Replace placeholder roles with real entries -->
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">Senior Data Analyst — <span style="color:var(--muted)">Your Company</span></div>
+            <div class="exp-meta">2023 — Present · Remote</div>
+          </div>
+          <ul>
+            <li>Own end-to-end analytics: requirements → models → dashboards; reduce reporting time by 50% via reusable SQL/Python components.</li>
+            <li>Stand up experimentation framework and enable self-serve insights for cross-functional teams.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">Data Analyst — <span style="color:var(--muted)">Prior Company</span></div>
+            <div class="exp-meta">2021 — 2023 · Hybrid</div>
+          </div>
+          <ul>
+            <li>Built automated Tableau/Power BI assets and Snowflake-backed models used by supply chain and finance.</li>
+            <li>Partnered with stakeholders to define source-of-truth metrics and governance.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">Business/Data Analyst — <span style="color:var(--muted)">Earlier Company</span></div>
+            <div class="exp-meta">2019 — 2021 · On-site</div>
+          </div>
+          <ul>
+            <li>Streamlined ETL and data quality checks; surfaced integrity issues before they hit dashboards.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="grid cols-3">
+        <!-- TODO: Replace with real projects -->
+        <article class="card proj">
+          <a class="proj-link" href="#" aria-label="Project 1 link">Pricing Optimization Toolkit →</a>
+          <p>SQL + Python package that standardizes margin calculations and flags price anomalies across ERPs.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Snowflake</span>
+          </div>
+        </article>
+        <article class="card proj">
+          <a class="proj-link" href="#" aria-label="Project 2 link">Supply Chain Health Dashboard →</a>
+          <p>Executive dashboard tracking supplier performance, MRP stability, and inventory turns.</p>
+          <div class="tags">
+            <span class="tag">Tableau</span><span class="tag">dbt (concept)</span><span class="tag">ETL</span>
+          </div>
+        </article>
+        <article class="card proj">
+          <a class="proj-link" href="#" aria-label="Project 3 link">Experimentation Playbook →</a>
+          <p>Guides teams through hypothesis design, metrics, and analysis; includes reusable templates.</p>
+          <div class="tags">
+            <span class="tag">A/B Testing</span><span class="tag">Analytics Eng</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h2>Skills</h2>
+      <div class="card">
+        <div class="skills-list" aria-label="Skill tags">
+          <!-- TODO: Edit to match your strengths -->
+          <span class="skill">SQL</span>
+          <span class="skill">Python (pandas)</span>
+          <span class="skill">Tableau / Power BI</span>
+          <span class="skill">Snowflake</span>
+          <span class="skill">ETL & Data Quality</span>
+          <span class="skill">dbt (concepts)</span>
+          <span class="skill">Experimentation</span>
+          <span class="skill">Stakeholder Comms</span>
+          <span class="skill">KPI Design</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="reveal">
+      <h2>Blog</h2>
+      <div class="card">
+        <!-- TODO: Link real posts or pin external writing -->
+        <div class="blog-item">
+          <a href="#" target="_blank" rel="noopener">From Ad-Hoc to Self-Serve: Shipping Dashboards That Stick</a>
+          <div class="blog-meta">5 min read · Analytics Process</div>
+        </div>
+        <div class="blog-item">
+          <a href="#" target="_blank" rel="noopener">Experimentation Without Drama: Picking the Right North Stars</a>
+          <div class="blog-meta">6 min read · Product Analytics</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2>Contact</h2>
+      <div class="card contact">
+        <p>Open to remote roles and consulting. The fastest way to reach me is email.</p>
+        <p>
+          <!-- TODO: Replace email -->
+          <a class="btn primary" href="mailto:jakob.orel@example.com" aria-label="Email Jakob">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v.35l-10 6.25L2 6.35V6Zm0 2.53v9.47a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.53l-9.41 5.88a2 2 0 0 1-2.18 0L2 8.53Z"/></svg>
+            jakob.orel@example.com
+          </a>
+        </p>
+        <p style="margin-top:.6rem">
+          <!-- TODO: Replace with your public links -->
+          <a class="btn" href="https://www.linkedin.com/in/jakoborel" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="resume.pdf" download>Résumé</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Jakob Orel · Built with semantic HTML & a dash of CSS
+  </footer>
+
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jakob Orel",
+    "jobTitle": "Data Analyst",
+    "url": "https://example.com/",
+    "email": "mailto:jakob.orel@example.com",
+    "sameAs": ["https://www.linkedin.com/in/jakoborel"]
+  }
+  </script>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Subtle reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      for (const e of entries){
+        if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+      }
+    }, { threshold: 0.12 }) : null;
+
+    if (obs){ revealEls.forEach(el => obs.observe(el)); } else { revealEls.forEach(el => el.classList.add('in')); }
+  </script>
+</body>
+</html>
