@@ -1,170 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jakob Orel — Data Analyst</title>
-  <meta name="description" content="Portfolio and contact for Jakob Orel, a detail-oriented data analyst and process driver." />
+  <link rel="icon" href="Headshot.png">
+  <meta name="description" content="Portfolio and contact for Jakob Orel, Data & Business Systems Analyst." />
   <meta name="theme-color" content="#12b3c7" />
+  <meta name="color-scheme" content="dark light">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Jakob Orel — Data Analyst" />
-  <meta property="og:description" content="Detail-oriented analyst turning messy data into clear decisions." />
+  <meta property="og:description" content="Results-driven Data & Business Systems Analyst in BI, ETL, and ERP optimization." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://picsum.photos/1200/630?blur=1" />
   <meta property="og:url" content="https://example.com/" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-
   <style>
     :root{
-      --bg: #0b0f14;
-      --bg-elev: #0f141b;
-      --text: #e6eef4;
-      --muted: #a9b7c0;
-      --accent: #12b3c7; /* subtle cyan, techy */
-      --card: #111821;
-      --border: #1b2632;
-      --maxw: 1100px;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg: #0b0f14; --bg-elev:#0f141b; --text:#e6eef4; --muted:#a9b7c0;
+      --accent:#12b3c7; --card:#111821; --border:#1b2632;
+      --maxw:1100px; --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    @media (prefers-contrast: more){
-      :root { --accent:#00d5ff; }
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 600px at 80% -10%, #112733 0%, transparent 60%),
-                  radial-gradient(900px 500px at -10% 0%, #0e2530 0%, transparent 60%),
+    /* Light theme vars */
+    html[data-theme="light"]{
+      --bg:#f7fafc; --bg-elev:#ffffff; --text:#0f1720; --muted:#4a5a68;
+      --accent:#0aa8bf; --card:#ffffff; --border:#d6e3ef;
+      background: radial-gradient(1200px 600px at 80% -10%, #e6fbff 0%, transparent 60%),
+                  radial-gradient(900px 500px at -10% 0%, #eaf7ff 0%, transparent 60%),
                   var(--bg);
-      line-height: 1.6;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #112733 0%, transparent 60%),
+        radial-gradient(900px 500px at -10% 0%, #0e2530 0%, transparent 60%),
+        var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, Noto Sans;
+      line-height:1.6;
     }
 
-    /* Skip link */
-    .skip-link{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    /* Header / nav */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px);
+      background: color-mix(in hsl, var(--bg-elev) 80%, transparent); border-bottom:1px solid var(--border);}
+    .nav{max-width:var(--maxw); margin:0 auto; padding:.8rem 1rem; display:flex; align-items:center; gap:1rem;}
+    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none;}
+    .logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg, var(--accent), #3ad6ea 70%); box-shadow:0 4px 16px color-mix(in oklab, var(--accent) 40%, black);}
+    .brand span{font-weight:700; letter-spacing:.3px; color:var(--text)}
+    nav ul{margin-left:auto; display:flex; gap:.8rem; list-style:none; padding:0; flex-wrap:wrap;}
+    nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:.5rem .7rem; border-radius:.6rem;}
+    nav a:hover, nav a:focus-visible{color:var(--text); background:var(--card);}
+
+    /* Theme toggle */
+    .toggle{margin-left:.5rem; display:inline-flex; align-items:center; gap:.4rem;}
+    .toggle button{
+      border:1px solid var(--border); background:var(--card); color:var(--text);
+      padding:.45rem .65rem; border-radius:.6rem; font-weight:700; cursor:pointer;
     }
-    .skip-link:focus{
-      position:fixed; left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem;
-      background: var(--card); outline: 2px solid var(--accent); border-radius: .5rem; z-index: 9999;
-    }
+    .toggle button:hover{border-color: color-mix(in oklab, var(--accent) 60%, white)}
 
-    /* Layout */
-    header{
-      position: sticky; top:0; z-index: 50;
-      backdrop-filter: saturate(140%) blur(8px);
-      background: color-mix(in hsl, var(--bg-elev) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav{
-      max-width: var(--maxw); margin: 0 auto; padding: .8rem 1rem;
-      display:flex; align-items:center; gap: 1rem;
-    }
-    .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; }
-    .logo{
-      width: 34px; height: 34px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), #3ad6ea 70%);
-      box-shadow: 0 4px 16px color-mix(in oklab, var(--accent) 40%, black);
-    }
-    .brand span{ font-weight: 700; letter-spacing:.3px; color: var(--text); }
-    nav ul{
-      margin-left: auto; display:flex; gap: .8rem; list-style:none; padding:0;
-      flex-wrap: wrap;
-    }
-    nav a{
-      color: var(--muted); text-decoration: none; font-weight: 600; padding:.5rem .7rem; border-radius:.6rem;
-    }
-    nav a:focus-visible, nav a:hover{ color: var(--text); background: var(--card); outline: 2px solid transparent; }
+    /* Hero */
+    .hero{max-width:var(--maxw); margin:2.5rem auto 1rem; padding:1.5rem 1rem 0; display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; align-items:center;}
+    .hero h1{font-size:clamp(2rem, 4vw + .5rem, 3.2rem); line-height:1.1; margin:.2rem 0 .6rem;}
+    .kicker{color:var(--accent); font-weight:800; text-transform:uppercase; font-size:.8rem; letter-spacing:.2rem;}
+    .lede{font-size:clamp(1rem, 1.4vw + .6rem, 1.15rem); color:#d6e3ea;}
+    html[data-theme="light"] .lede{color:#21313a}
+    .cta{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1rem;}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .9rem; border-radius:.7rem; text-decoration:none; font-weight:700; border:1px solid var(--border); background:var(--card); color:var(--text); box-shadow:0 4px 14px rgba(0,0,0,.2);}
+    .btn:hover,.btn:focus-visible{border-color:color-mix(in oklab, var(--accent) 60%, white); outline:none;}
+    .btn.primary{background:linear-gradient(135deg, var(--accent), #3ad6ea 80%); color:#001217; border-color:transparent;}
+    .btn .icon{width:1.1rem; height:1.1rem;}
+    .portrait{width:180px; height:180px; border-radius:16px; overflow:hidden; margin:.5rem auto 0; box-shadow:var(--shadow); border:1px solid var(--border); background:#0c1117;}
+    html[data-theme="light"] .portrait{background:#f2f7fb}
+    .portrait img{display:block; width:100%; height:100%; object-fit:cover;}
 
-    .hero{
-      max-width: var(--maxw); margin: 2.5rem auto 1rem; padding: 1.5rem 1rem 0;
-      display:grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items:center;
-    }
-    .hero h1{ font-size: clamp(2rem, 4vw + .5rem, 3.2rem); line-height:1.1; margin:.2rem 0 .6rem;}
-    .title { color: var(--muted); font-weight:600; letter-spacing:.4px; }
-    .lede{ font-size: clamp(1rem, 1.4vw + .6rem, 1.15rem); color: #d6e3ea; }
-    .cta { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1rem; }
+    /* Sections */
+    main{max-width:var(--maxw); margin:1rem auto 4rem; padding:0 1rem;}
+    section{margin-top:3rem; scroll-margin-top:80px;}
+    section h2{font-size:clamp(1.1rem, 1.8vw + .6rem, 1.6rem); margin:0 0 1rem;}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem;}
+    .grid{display:grid; gap:1rem;}
+    .grid.cols-3{grid-template-columns:repeat(1,1fr);}
+    @media (min-width:760px){.grid.cols-3{grid-template-columns:repeat(3,1fr);}}
 
-    .btn{
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.65rem .9rem; border-radius:.7rem; text-decoration:none; font-weight:700;
-      border:1px solid var(--border); background: var(--card); color: var(--text);
-      box-shadow: 0 4px 14px rgba(0,0,0,.25);
-    }
-    .btn:hover, .btn:focus-visible{ border-color: color-mix(in oklab, var(--accent) 60%, white); outline:none; }
-    .btn.primary{ background: linear-gradient(135deg, var(--accent), #3ad6ea 80%); color:#001217; border-color: transparent; }
-    .btn .icon{ width:1.1rem; height:1.1rem; }
+    /* Experience */
+    .exp-item + .exp-item{margin-top:.9rem;}
+    .exp-head{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;}
+    .exp-title{font-weight:700;}
+    .exp-meta{color:var(--muted); font-size:.95rem;}
 
-    .portrait{
-      width: 180px; height: 180px; border-radius: 16px; overflow:hidden; margin: .5rem auto 0; box-shadow: var(--shadow);
-      border:1px solid var(--border); background: #0c1117;
-    }
-    .portrait img{ display:block; width:100%; height:100%; object-fit: cover; }
+    /* Projects */
+    .proj{display:flex; flex-direction:column; gap:.5rem;}
+    .proj a.proj-link{color:var(--text); text-decoration:none; font-weight:700;}
+    .proj a.proj-link:hover{text-decoration:underline;}
+    .proj p{color:var(--muted); margin:.2rem 0 0;}
+    .tags{display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.4rem;}
+    .tag{font-size:.8rem; padding:.25rem .5rem; border:1px solid var(--border); border-radius:.5rem; color:var(--muted);}
 
-    main{ max-width: var(--maxw); margin: 1rem auto 4rem; padding: 0 1rem; }
-    section{ margin-top: 3rem; scroll-margin-top: 80px; }
-    section h2{
-      font-size: clamp(1.1rem, 1.8vw + .6rem, 1.6rem);
-      margin: 0 0 1rem; letter-spacing:.2px;
-    }
-    .kicker{ color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: .8rem; letter-spacing: .2rem; }
+    /* Skills */
+    .skills-list{display:flex; flex-wrap:wrap; gap:.5rem;}
+    .skill{padding:.45rem .6rem; border:1px dashed var(--border); border-radius:.6rem; color:#d3dee6; background:#0c1219;}
+    html[data-theme="light"] .skill{background:#f7fbff; color:#1b2b36}
 
-    .card{
-      background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 1.1rem;
-    }
-    .grid{ display:grid; gap:1rem; }
-    .grid.cols-2{ grid-template-columns: repeat(1,1fr); }
-    .grid.cols-3{ grid-template-columns: repeat(1,1fr); }
-    @media (min-width: 760px){
-      .grid.cols-2{ grid-template-columns: repeat(2,1fr); }
-      .grid.cols-3{ grid-template-columns: repeat(3,1fr); }
-    }
+    /* Blog */
+    .blog-item + .blog-item{margin-top:.8rem;}
+    .blog-item a{color:var(--text); text-decoration:none; font-weight:700;}
+    .blog-item a:hover{text-decoration:underline;}
+    .blog-meta{color:var(--muted); font-size:.95rem;}
 
-    .exp-item + .exp-item{ margin-top: .9rem; }
-    .exp-head{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-    .exp-title{ font-weight: 700; }
-    .exp-meta{ color: var(--muted); font-size: .95rem; }
+    /* Contact & footer */
+    .contact{text-align:center; padding:1.5rem;}
+    .contact p{color:var(--muted);}
+    footer{border-top:1px solid var(--border); color:var(--muted); padding:1.2rem; text-align:center; background:#0a0f14;}
+    html[data-theme="light"] footer{background:#f2f7fb}
 
-    .proj{ display:flex; flex-direction:column; gap:.5rem; }
-    .proj a.proj-link{ text-decoration:none; color: var(--text); font-weight:700; }
-    .proj p{ color: var(--muted); margin:.2rem 0 0; }
+    /* PDF viewer */
+    .pdfbox{background:#0c1117; border:1px solid var(--border); border-radius:12px; padding:.75rem;}
+    html[data-theme="light"] .pdfbox{background:#f7fbff}
+    .pdfbox .note{color:var(--muted); font-size:.9rem; margin:.4rem 0 .6rem;}
+    iframe, embed{width:100%; height:72vh; border:0; border-radius:10px; background:#0c1117;}
+    html[data-theme="light"] iframe, html[data-theme="light"] embed{background:#fff}
 
-    .tags{ display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.4rem;}
-    .tag{ font-size:.8rem; padding:.25rem .5rem; border:1px solid var(--border); border-radius:.5rem; color: var(--muted); }
-
-    .skills-list{ display:flex; flex-wrap:wrap; gap:.5rem; }
-    .skill{ padding:.45rem .6rem; border:1px dashed var(--border); border-radius:.6rem; color: #d3dee6; background:#0c1219; }
-
-    .blog-item + .blog-item{ margin-top:.8rem; }
-    .blog-item a{ color: var(--text); text-decoration:none; font-weight:700; }
-    .blog-item a:hover{ text-decoration: underline; }
-    .blog-meta{ color: var(--muted); font-size:.95rem; }
-
-    .contact{ text-align:center; padding: 1.5rem; }
-    .contact p{ color: var(--muted); }
-
-    footer{
-      border-top: 1px solid var(--border);
-      color: var(--muted); padding: 1.2rem; text-align:center; background: #0a0f14;
-    }
-
-    /* Subtle reveal */
-    .reveal{ opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.in{ opacity:1; transform:none; }
-
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease;}
+    .reveal.in{opacity:1; transform:none;}
     @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      .reveal{ opacity:1 !important; transform:none !important; }
+      html{scroll-behavior:auto}
+      .reveal{opacity:1 !important; transform:none !important;}
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <header>
     <div class="nav" role="navigation" aria-label="Primary">
       <a href="#" class="brand" aria-label="Home">
@@ -178,40 +146,37 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#blog">Blog</a></li>
+          <li><a href="#resume">Résumé</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="toggle" aria-label="Theme toggle">
+        <button id="themeBtn" title="Toggle light/dark" aria-pressed="true">🌙 Dark</button>
+      </div>
     </div>
   </header>
 
   <section class="hero" aria-labelledby="intro">
     <div>
-      <div class="kicker" id="intro">Data Analyst</div>
+      <div class="kicker" id="intro">Data & Business Systems Analyst</div>
       <h1>Jakob Orel</h1>
       <p class="lede">
-        Detail-oriented process driver who turns messy data into clear decisions. I lead with ownership and an independent mindset, 
-        building self-serve analytics and reliable pipelines that scale. I care about clean models, pragmatic experimentation, and measurable impact.
+        Results-driven analyst focused on enterprise data management, BI reporting, and ERP optimization. I translate complex data into
+        actionable insights that drive cost savings, process improvements, and strategic decisions.
       </p>
       <div class="cta">
-        <!-- TODO: Replace links below -->
-        <a class="btn primary" href="mailto:jakob.orel@example.com" aria-label="Email Jakob">
+        <a class="btn primary" href="mailto:jakoborel@gmail.com" aria-label="Email Jakob">
+          <!-- mail icon -->
           <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v.35l-10 6.25L2 6.35V6Zm0 2.53v9.47a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.53l-9.41 5.88a2 2 0 0 1-2.18 0L2 8.53Z"/></svg>
           Email
         </a>
-        <a class="btn" href="https://www.linkedin.com/in/jakoborel" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1.01 1.84-2.2 3.79-2.2 4.05 0 4.8 2.67 4.8 6.13V24h-4v-5.6c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94V24H8V8z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn" href="resume.pdf" download aria-label="Download résumé">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 16a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5Z"/></svg>
-          Résumé
-        </a>
+        <a class="btn" href="https://www.linkedin.com/in/jakob-orel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="Jakob_Orel_Resume.pdf" download>Download Résumé</a>
       </div>
     </div>
     <div>
       <div class="portrait" aria-hidden="true">
-        <!-- Placeholder image, swap with your headshot URL -->
-        <img src="https://picsum.photos/400?grayscale" alt="" />
+        <img src="Headshot.png" alt="Headshot">
       </div>
     </div>
   </section>
@@ -221,47 +186,69 @@
       <h2>About</h2>
       <div class="card">
         <p>
-          I partner with product, engineering, and operations to align metrics, ship trustworthy dashboards, and simplify decision-making.
-          My toolkit spans SQL, Python, and modern BI; my bias is toward clarity, automation, and momentum.
+          I partner with supply chain, product, engineering, and operations to align metrics, build trustworthy dashboards,
+          and simplify decision-making. Skilled in SQL, Tableau, Snowflake, and ETL pipelines; experienced with SAP and Epicor ERP.
         </p>
-        <p style="color:var(--muted)">
-          <!-- Optional quick facts -->
-          <strong>Focus:</strong> analytics engineering · experimentation · supply chain & operations analytics
-        </p>
+        <p style="color:var(--muted)"><strong>Location:</strong> Cedar Rapids, IA · <strong>Open to:</strong> Remote roles & consulting</p>
       </div>
     </section>
 
     <section id="experience" class="reveal">
       <h2>Experience</h2>
-      <div class="card">
-        <!-- TODO: Replace placeholder roles with real entries -->
+      <div class="card" id="experience-list">
         <div class="exp-item">
           <div class="exp-head">
-            <div class="exp-title">Senior Data Analyst — <span style="color:var(--muted)">Your Company</span></div>
-            <div class="exp-meta">2023 — Present · Remote</div>
+            <div class="exp-title">Senior Analyst, Business Systems & Transformation — <span style="color:var(--muted)">Collins Aerospace</span></div>
+            <div class="exp-meta">Jul 2024 — Present · Cedar Rapids, IA</div>
           </div>
           <ul>
-            <li>Own end-to-end analytics: requirements → models → dashboards; reduce reporting time by 50% via reusable SQL/Python components.</li>
-            <li>Stand up experimentation framework and enable self-serve insights for cross-functional teams.</li>
+            <li>Build automated Tableau dashboards and self-service Excel tools enabling supply chain teams to refresh dynamic reports and access near real-time analytics.</li>
+            <li>Improve data integrity and develop sustainable ETL processes with Snowflake and SQL, enhancing reporting accuracy and scalability.</li>
+            <li>Analyze pricing data across multiple ERP systems to calculate product net savings; deliver monthly reports to sourcing and procurement leadership for initiative prioritization.</li>
+            <li>Partner with supply chain teams to identify opportunities in supplier performance, inventory, manufacturing flow, cost reduction, and MRP stability.</li>
           </ul>
         </div>
+
         <div class="exp-item">
           <div class="exp-head">
-            <div class="exp-title">Data Analyst — <span style="color:var(--muted)">Prior Company</span></div>
-            <div class="exp-meta">2021 — 2023 · Hybrid</div>
+            <div class="exp-title">Analyst, Business Systems & Transformation — <span style="color:var(--muted)">Collins Aerospace</span></div>
+            <div class="exp-meta">Jun 2022 — Jul 2024 · Cedar Rapids, IA</div>
           </div>
           <ul>
-            <li>Built automated Tableau/Power BI assets and Snowflake-backed models used by supply chain and finance.</li>
-            <li>Partnered with stakeholders to define source-of-truth metrics and governance.</li>
+            <li>Delivered enterprise BI reporting aligned with strategy; standardized SQL models and ETL jobs to scale analytics across functions.</li>
+            <li>Enabled stakeholder self-serve through governed datasets and refreshable dashboards.</li>
           </ul>
         </div>
+
         <div class="exp-item">
           <div class="exp-head">
-            <div class="exp-title">Business/Data Analyst — <span style="color:var(--muted)">Earlier Company</span></div>
-            <div class="exp-meta">2019 — 2021 · On-site</div>
+            <div class="exp-title">Supply Chain Data Analytics Intern — <span style="color:var(--muted)">Collins Aerospace</span></div>
+            <div class="exp-meta">Jun 2021 — May 2022 · Cedar Rapids, IA</div>
           </div>
           <ul>
-            <li>Streamlined ETL and data quality checks; surfaced integrity issues before they hit dashboards.</li>
+            <li>Independently analyzed supply chain metrics using SQL scripts to surface cost-saving opportunities.</li>
+            <li>Performed mass inserts/updates for data enrichment to maintain accuracy; created triggers and stored procedures to preserve vendor data integrity.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">Business Analytics Intern — <span style="color:var(--muted)">Marion Process Solutions</span></div>
+            <div class="exp-meta">May 2020 — May 2021 · Marion, IA</div>
+          </div>
+          <ul>
+            <li>Designed SQL queries to generate delivery & utilization efficiency reports.</li>
+            <li>Customized ERP workflows to improve processes, resulting in a documented $140,000 ROI.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-head">
+            <div class="exp-title">Student Manager / Career Assistant — <span style="color:var(--muted)">Berry Career Institute, Cornell College</span></div>
+            <div class="exp-meta">Aug 2018 — May 2022 · Mount Vernon, IA</div>
+          </div>
+          <ul>
+            <li>Trained staff and coached students on résumés, interviews, and career prep.</li>
           </ul>
         </div>
       </div>
@@ -269,28 +256,32 @@
 
     <section id="projects" class="reveal">
       <h2>Projects</h2>
-      <div class="grid cols-3">
-        <!-- TODO: Replace with real projects -->
+      <div class="grid cols-3" id="projects-grid">
+        <!-- Projects derived from accomplishments on the résumé -->
         <article class="card proj">
-          <a class="proj-link" href="#" aria-label="Project 1 link">Pricing Optimization Toolkit →</a>
-          <p>SQL + Python package that standardizes margin calculations and flags price anomalies across ERPs.</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Snowflake</span>
-          </div>
+          <a class="proj-link" href="#" aria-label="Automated BI toolkit">Automated BI Toolkit →</a>
+          <p>Suite of Tableau dashboards + self-serve Excel tools delivering near real-time analytics for supply chain teams.</p>
+          <div class="tags"><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">SQL</span></div>
         </article>
         <article class="card proj">
-          <a class="proj-link" href="#" aria-label="Project 2 link">Supply Chain Health Dashboard →</a>
-          <p>Executive dashboard tracking supplier performance, MRP stability, and inventory turns.</p>
-          <div class="tags">
-            <span class="tag">Tableau</span><span class="tag">dbt (concept)</span><span class="tag">ETL</span>
-          </div>
+          <a class="proj-link" href="#" aria-label="Snowflake ETL modernization">Snowflake ETL Modernization →</a>
+          <p>Hardened ETL with Snowflake + SQL to improve data integrity, scalability, and refresh reliability across reporting.</p>
+          <div class="tags"><span class="tag">Snowflake</span><span class="tag">ETL</span><span class="tag">Data Quality</span></div>
         </article>
         <article class="card proj">
-          <a class="proj-link" href="#" aria-label="Project 3 link">Experimentation Playbook →</a>
-          <p>Guides teams through hypothesis design, metrics, and analysis; includes reusable templates.</p>
-          <div class="tags">
-            <span class="tag">A/B Testing</span><span class="tag">Analytics Eng</span>
-          </div>
+          <a class="proj-link" href="#" aria-label="Multi-ERP pricing analytics">Multi-ERP Pricing Analytics →</a>
+          <p>Cross-system pricing analysis to calculate net savings and drive monthly sourcing/procurement prioritization.</p>
+          <div class="tags"><span class="tag">SAP</span><span class="tag">Epicor</span><span class="tag">SQL</span></div>
+        </article>
+        <article class="card proj">
+          <a class="proj-link" href="#" aria-label="Supply chain KPI analysis">Supply Chain KPI Analysis →</a>
+          <p>SQL-driven analysis of supply chain metrics to identify cost-saving opportunities and bottlenecks.</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Analytics</span></div>
+        </article>
+        <article class="card proj">
+          <a class="proj-link" href="#" aria-label="ERP workflow optimization">ERP Workflow Optimization →</a>
+          <p>Customized ERP processes producing a documented $140k ROI through improved delivery & utilization tracking.</p>
+          <div class="tags"><span class="tag">ERP</span><span class="tag">Process Design</span></div>
         </article>
       </div>
     </section>
@@ -299,16 +290,18 @@
       <h2>Skills</h2>
       <div class="card">
         <div class="skills-list" aria-label="Skill tags">
-          <!-- TODO: Edit to match your strengths -->
-          <span class="skill">SQL</span>
-          <span class="skill">Python (pandas)</span>
-          <span class="skill">Tableau / Power BI</span>
+          <span class="skill">SQL Server</span>
+          <span class="skill">Tableau</span>
+          <span class="skill">Microsoft Excel</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">SSIS</span>
+          <span class="skill">Alteryx</span>
           <span class="skill">Snowflake</span>
-          <span class="skill">ETL & Data Quality</span>
-          <span class="skill">dbt (concepts)</span>
-          <span class="skill">Experimentation</span>
-          <span class="skill">Stakeholder Comms</span>
-          <span class="skill">KPI Design</span>
+          <span class="skill">SAP</span>
+          <span class="skill">Epicor ERP 10</span>
+          <span class="skill">Python</span>
+          <span class="skill">R</span>
+          <span class="skill">Supply Chain (CORE)</span>
         </div>
       </div>
     </section>
@@ -316,7 +309,6 @@
     <section id="blog" class="reveal">
       <h2>Blog</h2>
       <div class="card">
-        <!-- TODO: Link real posts or pin external writing -->
         <div class="blog-item">
           <a href="#" target="_blank" rel="noopener">From Ad-Hoc to Self-Serve: Shipping Dashboards That Stick</a>
           <div class="blog-meta">5 min read · Analytics Process</div>
@@ -328,29 +320,39 @@
       </div>
     </section>
 
+    <section id="resume" class="reveal">
+      <h2>Résumé</h2>
+      <div class="card pdfbox">
+        <p class="note">This viewer loads <code>Jakob_Orel_Resume.pdf</code> from the same folder as this HTML.</p>
+        <iframe
+          src="Jakob_Orel_Resume.pdf#toolbar=1&navpanes=0&view=FitH"
+          title="Résumé PDF viewer"
+          loading="lazy"
+          onerror="this.replaceWith(Object.assign(document.createElement('embed'), {src:'Jakob_Orel_Resume.pdf', type:'application/pdf'}));">
+        </iframe>
+        <p style="margin-top:.6rem">
+          <a class="btn" href="Jakob_Orel_Resume.pdf" download>Download Résumé (PDF)</a>
+          <a class="btn" href="Jakob_Orel_Resume.pdf" target="_blank" rel="noopener">Open in New Tab</a>
+        </p>
+      </div>
+    </section>
+
     <section id="contact" class="reveal">
       <h2>Contact</h2>
       <div class="card contact">
-        <p>Open to remote roles and consulting. The fastest way to reach me is email.</p>
+        <p>Based in Cedar Rapids, IA. Open to remote roles and positions in Iowa, US.</p>
         <p>
-          <!-- TODO: Replace email -->
-          <a class="btn primary" href="mailto:jakob.orel@example.com" aria-label="Email Jakob">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v.35l-10 6.25L2 6.35V6Zm0 2.53v9.47a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.53l-9.41 5.88a2 2 0 0 1-2.18 0L2 8.53Z"/></svg>
-            jakob.orel@example.com
-          </a>
+          <a class="btn primary" href="mailto:jakoborel@gmail.com">jakoborel@gmail.com</a>
         </p>
         <p style="margin-top:.6rem">
-          <!-- TODO: Replace with your public links -->
-          <a class="btn" href="https://www.linkedin.com/in/jakoborel" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="resume.pdf" download>Résumé</a>
+          <a class="btn" href="https://www.linkedin.com/in/jakob-orel/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="Jakob_Orel_Resume.pdf" download>Résumé</a>
         </p>
       </div>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> Jakob Orel · Built with semantic HTML & a dash of CSS
-  </footer>
+  <footer>© <span id="year"></span> Jakob Orel · Built with semantic HTML & a dash of CSS</footer>
 
   <!-- Schema.org Person -->
   <script type="application/ld+json">
@@ -358,26 +360,46 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jakob Orel",
-    "jobTitle": "Data Analyst",
+    "jobTitle": "Data & Business Systems Analyst",
     "url": "https://example.com/",
-    "email": "mailto:jakob.orel@example.com",
-    "sameAs": ["https://www.linkedin.com/in/jakoborel"]
+    "email": "mailto:jakoborel@gmail.com",
+    "sameAs": ["https://www.linkedin.com/in/jakob-orel/"]
   }
   </script>
 
   <script>
-    // Current year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Subtle reveal on scroll
+    // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
     const obs = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
       for (const e of entries){
         if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
       }
     }, { threshold: 0.12 }) : null;
-
     if (obs){ revealEls.forEach(el => obs.observe(el)); } else { revealEls.forEach(el => el.classList.add('in')); }
+
+    // THEME TOGGLE (default dark)
+    const btn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+
+    const setTheme = (t) => {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('jakob_theme', t);
+      const dark = t === 'dark';
+      btn.textContent = dark ? '🌙 Dark' : '☀️ Light';
+      btn.setAttribute('aria-pressed', String(dark));
+    };
+
+    // Initialize: prefer saved, else default dark
+    const saved = localStorage.getItem('jakob_theme');
+    setTheme(saved === 'light' ? 'light' : 'dark');
+
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
   </script>
 </body>
 </html>
